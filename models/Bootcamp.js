@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Bootcamp.init({
+    Bootcamp.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     website: DataTypes.STRING,
