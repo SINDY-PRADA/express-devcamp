@@ -5,28 +5,28 @@ module.exports = {
   async up (queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('bootcamps', [{
-      name: 'Yari',
-      description: 'ydcufino',
-      website: '12345',
-      phone: '3133092008',
-      average_rating: '50000',
-      average_cost: '20000'
+      name: 'PHP Bootcamp',
+      description: 'Bootcamp for PHP learning',
+      phone: '(57)6011111',
+      average_rating: 4500,
+      average_cost: 3,
+      user_id:1
     },
     {
-      name: 'Nicolas',
-      description: 'nperaza',
-      website: '67892',
-      phone: '3223554145',
-      average_rating: '65000',
-      average_cost: '30000'
+      name: 'Express Backend',
+      description: 'Bootcamp for Javascript learning',
+      phone: '(57)6022222',
+      average_rating: 6500,
+      average_cost: 3,
+      user_id: 1
     },
     {
-      name: 'Sindy',
-      description: 'syprada',
-      website: '72634',
-      phone:'3212973090',
-      average_rating: '70000',
-      average_cost: '10000'
+      name: 'CSS Bootcamp',
+      description: 'Bootcamp for CSS learning',
+      phone: '(57)6033333',
+      average_rating: 5500,
+      average_cost: 3,
+      user_id: 1
     }
   ], {});
   
