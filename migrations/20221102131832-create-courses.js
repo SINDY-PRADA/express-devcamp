@@ -21,7 +21,7 @@ module.exports = {
       enroll_cost: {
         type: Sequelize.FLOAT
       },
-      minimun_skil: {
+      minimum_skill: {
         type: Sequelize.STRING
       }
     });

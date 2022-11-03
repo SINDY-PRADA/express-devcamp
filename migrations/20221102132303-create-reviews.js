@@ -17,7 +17,7 @@ module.exports = {
       },
       rating: {
         type: Sequelize.FLOAT
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
