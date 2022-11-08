@@ -9,15 +9,18 @@ module.exports = {
        email: 'syprada2@misena.edu.co',
        password: '56789'
       },
-      {username: 'Yari',
+      {
+
+      username: 'Yari',
       email: 'ydcufino@misena.edu.co',
       password: '12345'
+
     },
-      {username: 'Jireth',
+    {
+      username: 'Jireth',
       email: 'jbaron49@misena.edu.co',
       password: '45678'
     }
-    
     
     ], {});
     

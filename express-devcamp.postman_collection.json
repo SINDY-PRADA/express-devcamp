@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c89d035a-ab4b-44a3-8fe0-e12712193019",
+		"_postman_id": "27389345-9172-41b9-8058-4aa947e30e0b",
 		"name": "express-devcamp",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23072407"
 	},
 	"item": [
 		{
@@ -10,9 +11,21 @@
 			"item": [
 				{
 					"name": "traer todos los bootcamps",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/bootcamp",
 							"protocol": "http",
@@ -35,7 +48,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/bootcamp/50",
+							"raw": "http://localhost:5000/api/v1/bootcamp/90",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -45,7 +58,7 @@
 								"api",
 								"v1",
 								"bootcamp",
-								"50"
+								"90"
 							]
 						}
 					},
@@ -58,10 +71,15 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "    {\r\n        \"user_id\": 4\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/bootcamp/100",
+							"raw": "http://localhost:5000/api/v1/bootcamp/14",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -71,7 +89,7 @@
 								"api",
 								"v1",
 								"bootcamp",
-								"100"
+								"14"
 							]
 						}
 					},
@@ -83,7 +101,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/bootcamp/100",
+							"raw": "http://localhost:5000/api/v1/bootcamp/19",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -93,7 +111,7 @@
 								"api",
 								"v1",
 								"bootcamp",
-								"100"
+								"19"
 							]
 						}
 					},
@@ -104,6 +122,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"name\": \"JAVA\",\r\n            \"description\": \"Javascript\",\r\n            \"phone\": \"3223554144\",\r\n            \"average_rating\": 6,\r\n            \"average_cost\": 2600,\r\n            \"user_id\": \"2\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/bootcamp",
 							"protocol": "http",
@@ -152,7 +179,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/course/20",
+							"raw": "http://localhost:5000/api/v1/course/60",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -162,7 +189,7 @@
 								"api",
 								"v1",
 								"course",
-								"20"
+								"60"
 							]
 						}
 					},
@@ -173,8 +200,17 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"bootcamp_id\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/course/35",
+							"raw": "http://localhost:5000/api/v1/course/33",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -184,7 +220,7 @@
 								"api",
 								"v1",
 								"course",
-								"35"
+								"33"
 							]
 						}
 					},
@@ -196,7 +232,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/course/86",
+							"raw": "http://localhost:5000/api/v1/course/90",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -206,7 +242,7 @@
 								"api",
 								"v1",
 								"course",
-								"86"
+								"90"
 							]
 						}
 					},
@@ -217,6 +253,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"title\": \"Artes\",\r\n            \"description\": \"Delineados\",\r\n            \"weeks\": 4,\r\n            \"enroll_cost\": 70,\r\n            \"minimum_skill\": \"Intermedio\",\r\n            \"bootcamp_id\": \"3\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/course",
 							"protocol": "http",
@@ -240,9 +285,21 @@
 			"item": [
 				{
 					"name": "Traer todos los reviews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/review",
 							"protocol": "http",
@@ -265,7 +322,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/review/18",
+							"raw": "http://localhost:5000/api/v1/review/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -275,7 +332,7 @@
 								"api",
 								"v1",
 								"review",
-								"18"
+								"3"
 							]
 						}
 					},
@@ -309,7 +366,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/review/11",
+							"raw": "http://localhost:5000/api/v1/review/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -319,7 +376,7 @@
 								"api",
 								"v1",
 								"review",
-								"11"
+								"5"
 							]
 						}
 					},
@@ -330,6 +387,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"title\": \"Bootcamps\",\r\n            \"text\": \"Animacion\",\r\n            \"rating\": 5\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/v1/review",
 							"protocol": "http",
@@ -386,7 +452,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"Carolina\"\r\n}",
+							"raw": "{\r\n    \"username\": \"Mariana\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -394,7 +460,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/users/1",
+							"raw": "http://localhost:5000/api/v1/users/8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -404,7 +470,7 @@
 								"api",
 								"v1",
 								"users",
-								"1"
+								"8"
 							]
 						}
 					},
@@ -416,7 +482,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/users/6",
+							"raw": "http://localhost:5000/api/v1/users/13",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -426,7 +492,7 @@
 								"api",
 								"v1",
 								"users",
-								"6"
+								"13"
 							]
 						}
 					},
@@ -445,7 +511,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"Andres\",\r\n    \"email\": \"Andres@gmail.com\",\r\n    \"password\": \"1234567896\"\r\n}",
+							"raw": "{\r\n    \"username\":\"Melano\",\r\n    \"email\": \"paola@gmail.com\",\r\n    \"password\": \"099089\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -474,7 +540,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/users/9",
+							"raw": "http://localhost:5000/api/v1/users/8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -484,7 +550,7 @@
 								"api",
 								"v1",
 								"users",
-								"9"
+								"8"
 							]
 						}
 					},

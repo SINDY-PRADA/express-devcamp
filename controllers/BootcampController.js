@@ -4,24 +4,24 @@ const sequelize = require('../config/seq')
 //Datatypes de Sequelize
 const { DataTypes, ValidationError } = require('sequelize')
 //El modelo
-const UserModel = require('../models/user')
+const BootcampModel = require('../models/Bootcamp')
 const { response } = require('express')
 //Crear la entidad
-const User = UserModel(sequelize, DataTypes)
+const Bootcamp = BootcampModel(sequelize, DataTypes)
 
 
-//Listar todos los users
-exports.getAllUsers = async (req, res) => {
+//Listar todos los Bootcamps
+exports.getAllBootcamps = async (req, res) => {
 
-    //Traer los usuarios
+    //Traer los Bootcamps
     try {
-        const users = await User.findAll();
+        const bootcamps = await Bootcamp.findAll();
         //Response con los datos
         res
             .status(200)
             .json({
                 "success": true,
-                "data": users
+                "data": bootcamps
             })
     } catch (error) {
         res
@@ -32,23 +32,23 @@ exports.getAllUsers = async (req, res) => {
             })
     }
 }
-//Listar user por id
-exports.getSingleUser = async (req, res) => {
+//Listar bootcamp por id
+exports.getSingleBootcamp = async (req, res) => {
     try {
-        const singleUser = await User.findByPk(req.params.id)
-        if (singleUser) {
+        const singleBootcamp = await Bootcamp.findByPk(req.params.id)
+        if (singleBootcamp) {
             res
                 .status(200)
                 .json({
                     "success": true,
-                    "data": singleUser
+                    "data": singleBootcamp
                 })
         } else {
             res
                 .status(200)
                 .json({
                     "success": false,
-                    "errors": "Usuario no existente"
+                    "errors": "Bootcamp no existente"
                 })
         }
 
@@ -63,29 +63,29 @@ exports.getSingleUser = async (req, res) => {
 
 }
 
-//Actualizar users
-exports.updateUser = async (req, res) => {
+//Actualizar bootcamps
+exports.updateBootcamp = async (req, res) => {
     try {
-        const singleUser = await User.findByPk(req.params.id);
-        if (!singleUser) {
+        const singleBootcamp = await Bootcamp.findByPk(req.params.id);
+        if (!singleBootcamp) {
             res
                 .status(200)
                 .json({
                     "success": false,
-                    "errors": "Usuario no existente"
+                    "errors": "Bootcamp no existente"
                 })
         } else {
-            await User.update(req.body, {
+            await Bootcamp.update(req.body, {
                 where: {
                     id: req.params.id
                 }
             });
-            const updateUser = await User.findByPk(req.params.id)
+            const updateBootcamp = await Bootcamp.findByPk(req.params.id)
             res
                 .status(200)
                 .json({
                     "success": true,
-                    "data": updateUser
+                    "data": updateBootcamp
                 })
         }
 
@@ -99,21 +99,21 @@ exports.updateUser = async (req, res) => {
         }
 }
 
-//Eliminar users
-//Borrar users 
-exports.deleteUser = async (req, res)=>{
+//Eliminar bootcamps
+//Borrar bootcamps
+exports.deleteBootcamp = async (req, res)=>{
     //console.log(req.params.id)
     try {
-        const SingleUser = await User.findByPk(req.params.id);
-        if (!SingleUser) {
+        const SingleBootcamp = await Bootcamp.findByPk(req.params.id);
+        if (!SingleBootcamp) {
             res
             .status(400)
             .json({
                 "success": false,
-                "errors": "Usuario no existente"
+                "errors": "Bootcamp no existente"
         })
         } else {
-            await User.destroy({
+            await Bootcamp.destroy({
                 where: {
                     id: req.params.id
                 }
@@ -129,15 +129,15 @@ exports.deleteUser = async (req, res)=>{
     }
     
 }
-//Crear nuevo user
-exports.createUser = async (req, res) => {
+//Crear nuevo bootcamp
+exports.createBootcamp = async (req, res) => {
     try {
-        const newUser = await User.create(req.body)
+        const newBootcamp = await Bootcamp.create(req.body)
         res
             .status(200)
             .json({
                 "success": true,
-                "data": newUser
+                "data": newBootcamp
             })
     } catch (error) {
         if (error instanceof ValidationError) {

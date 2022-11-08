@@ -4,24 +4,24 @@ const sequelize = require('../config/seq')
 //Datatypes de Sequelize
 const { DataTypes, ValidationError } = require('sequelize')
 //El modelo
-const UserModel = require('../models/user')
+const ReviewModel = require('../models/reviews')
 const { response } = require('express')
 //Crear la entidad
-const User = UserModel(sequelize, DataTypes)
+const Review = ReviewModel(sequelize, DataTypes)
 
 
-//Listar todos los users
-exports.getAllUsers = async (req, res) => {
+//Listar todos Reviews
+exports.getAllReviews = async (req, res) => {
 
-    //Traer los usuarios
+    //Traer los Reviews
     try {
-        const users = await User.findAll();
+        const reviews = await Review.findAll();
         //Response con los datos
         res
             .status(200)
             .json({
                 "success": true,
-                "data": users
+                "data": reviews
             })
     } catch (error) {
         res
@@ -32,23 +32,23 @@ exports.getAllUsers = async (req, res) => {
             })
     }
 }
-//Listar user por id
-exports.getSingleUser = async (req, res) => {
+//Listar Review por id
+exports.getSingleReview = async (req, res) => {
     try {
-        const singleUser = await User.findByPk(req.params.id)
-        if (singleUser) {
+        const singleReview = await Review.findByPk(req.params.id)
+        if (singleReview) {
             res
                 .status(200)
                 .json({
                     "success": true,
-                    "data": singleUser
+                    "data": singleReview
                 })
         } else {
             res
                 .status(200)
                 .json({
                     "success": false,
-                    "errors": "Usuario no existente"
+                    "errors": "Review no existente"
                 })
         }
 
@@ -63,29 +63,29 @@ exports.getSingleUser = async (req, res) => {
 
 }
 
-//Actualizar users
-exports.updateUser = async (req, res) => {
+//Actualizar Reviews
+exports.updateReview = async (req, res) => {
     try {
-        const singleUser = await User.findByPk(req.params.id);
-        if (!singleUser) {
+        const singleReview = await Review.findByPk(req.params.id);
+        if (!singleReview) {
             res
                 .status(200)
                 .json({
                     "success": false,
-                    "errors": "Usuario no existente"
+                    "errors": "Review no existente"
                 })
         } else {
-            await User.update(req.body, {
+            await Review.update(req.body, {
                 where: {
                     id: req.params.id
                 }
             });
-            const updateUser = await User.findByPk(req.params.id)
+            const updateReview = await Review.findByPk(req.params.id)
             res
                 .status(200)
                 .json({
                     "success": true,
-                    "data": updateUser
+                    "data": updateReview
                 })
         }
 
@@ -99,21 +99,21 @@ exports.updateUser = async (req, res) => {
         }
 }
 
-//Eliminar users
-//Borrar users 
-exports.deleteUser = async (req, res)=>{
+//Eliminar Reviews
+//Borrar Reviews
+exports.deleteReview = async (req, res)=>{
     //console.log(req.params.id)
     try {
-        const SingleUser = await User.findByPk(req.params.id);
-        if (!SingleUser) {
+        const SingleReview = await Review.findByPk(req.params.id);
+        if (!SingleReview) {
             res
             .status(400)
             .json({
                 "success": false,
-                "errors": "Usuario no existente"
+                "errors": "Review no existente"
         })
         } else {
-            await User.destroy({
+            await Review.destroy({
                 where: {
                     id: req.params.id
                 }
@@ -129,15 +129,15 @@ exports.deleteUser = async (req, res)=>{
     }
     
 }
-//Crear nuevo user
-exports.createUser = async (req, res) => {
+//Crear nuevo Review
+exports.createReview = async (req, res) => {
     try {
-        const newUser = await User.create(req.body)
+        const newReview = await Review.create(req.body)
         res
             .status(200)
             .json({
                 "success": true,
-                "data": newUser
+                "data": newReview
             })
     } catch (error) {
         if (error instanceof ValidationError) {

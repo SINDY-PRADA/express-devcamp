@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         notEmpty: {
           args: true,
-          msg: 'username no debe estra vacio'
+          msg: 'username no debe estar vacio'
         },
       }
     },
@@ -55,9 +55,8 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     validate:{
       len:{
-        args:[2,10],
+        args:[5,10],
         msg:"password minimo 5 y maximo 10 caracteres"
-      
       }
     }  
   }
