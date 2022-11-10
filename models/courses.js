@@ -52,9 +52,9 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING, 
     validate: { 
-    notEmpty: {
-      args: true,
-      msg: 'Campo requerido'
+      isAlpha: {
+        args: true,
+        msg: 'La descripcion debe tener solo letras'
     },
     len:{
       args:[10,10],
@@ -71,7 +71,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Campo requerido'
         },
         len:{
-          args:[1,9],
+          args:[1,1],
           msg:"El número máximo de semanas para un curso es 9"        
           },
         }
@@ -81,7 +81,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isNumeric: {
          args: true,
-         msg: 'enroll_cost  debe tener solo numeros'        
+         msg: 'enroll_cost debe tener solo numeros'        
       },
         notEmpty: {
         args: true,
@@ -95,20 +95,23 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Campo requerido'
+          msg: 'minimum_skill campo requerido'
+        },
+          isAlpha: {
+            args: true,
+            msg: 'minimum_skill debe tener solo letras'
       },
     }, 
  },
-
    bootcamp_id: {
     type: DataTypes.STRING,
     validate: {
       notEmpty: {
         args: true,
-        msg: 'bootcamp_id requerido'
+        msg: 'bootcamp_id requerido'      
+        }
     }
-  }    
-}
+ }
   }, {
     sequelize,
     modelName: 'Course',

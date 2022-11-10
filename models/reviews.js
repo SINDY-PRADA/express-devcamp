@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Campo requerido'
         },
         len:{
-          args:[8,9],
-          msg:"Title maximo 9 caracteres"
+          args:[9,10],
+          msg:"Title maximo 10 caracteres"
         },
       }
     },
@@ -53,11 +53,11 @@ module.exports = (sequelize, DataTypes) => {
     validate: { 
     notEmpty: {
       args: true,
-      msg: 'Campo requerido'
+      msg: 'Text campo requerido'
     },
     len:{
-      args:[8,9],
-          msg:"Text maximo 9 caracteres"
+      args:[9,10],
+          msg:"Text maximo 10 caracteres"
         },
       },
     },
@@ -65,14 +65,14 @@ module.exports = (sequelize, DataTypes) => {
     rating:{
       type: DataTypes.FLOAT,
       validate: { 
-        notEmpty: {
-          args: true,
-          msg: 'Campo requerido'
-        },
           isNumeric: {
            args: true,
            msg: 'El rating debe tener solo numeros'        
           },
+          len:{
+            args:[1,1],
+            msg:"rating debe ser un número entero"        
+            },
         },  
      },
 
@@ -81,19 +81,19 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'bootcamp_id requerido'
-      },
-    },
-  },
-  user_id: {
+          msg: 'bootcamp_id requerido'      
+          },
+      },  
+   },
+    user_id: {
     type: DataTypes.STRING,
     validate: {
       notEmpty: {
         args: true,
-        msg: 'user_id requerido'
+        msg: 'user_id requerido'  
+        }
     }
-  }    
-}
+ }
 
   }, {
     sequelize,
